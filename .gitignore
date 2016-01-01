@@ -1,0 +1,32 @@
+# LaTeX tmp
+*.toc
+*.aux
+*.fdb_latexmk
+*.fls
+*.nav
+*.out
+*.snm
+*.vrb
+*(busy)
+*.synctex.gz
+
+# bibtex tmp
+*.bbl
+*.bcf
+*.blg
+*-blx.bib
+*.run.xml
+
+# Generated files
+*.pdf
+
+# webstorm project files
+.idea
+
+# put any other files you don't want to check in here,
+# such as .DS_Store (OSX), *.bak, etc.
+.DS_Store
+*.log
+*.bak
+*.swp
+*.tmp

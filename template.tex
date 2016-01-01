@@ -1,0 +1,65 @@
+\documentclass[tikz, crop, border=5pt]{standalone}
+\usepackage{forest}
+
+\usepackage{fontspec,xltxtra,xunicode}
+
+% English Fonts
+\setmainfont[BoldFont={Fira Sans}]{Fira Sans Light}
+
+% 中文字体
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=Hiragino Sans GB W6]{Hiragino Sans GB W3}
+\xeCJKsetup{CJKecglue = {\hskip 0pt plus 0.08\baselineskip}, xCJKecglue = {false}}
+\punctstyle{plain}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+
+\definecolor{myred}{RGB}{188,36,46}
+\definecolor{myblack}{RGB}{26,25,25}
+\definecolor{mygrey}{RGB}{129,130,132}
+
+\tikzset{
+    comment/.append  style={label={[font=\tiny]0:#1}},
+}
+
+\begin{document}
+
+\begin{forest}
+    /tikz/label position=below left,
+    /tikz/label distance=-.2em,
+    dot/.style={tikz+={\fill[fill=#1] (.child anchor) circle[radius=2pt];}},
+    dot/.default=myblack,
+    for tree={
+        % l sep-=1em,
+        s sep=-0.2em,
+        grow=0,
+        reversed, % tree direction
+        align=left,
+        parent anchor=east,
+        child anchor=west,
+        anchor=west,
+        before typesetting nodes={
+            if content={}{shape=coordinate}{}
+        },
+        edge path={
+            \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] (!u.parent anchor) -- +(0,0) |- (.child anchor)\forestoption{edge label};
+        },
+        if n children=0{tier=word}{},
+    }
+%%%REPLACEBEGIN
+[, label=Animalia, dot
+    [Ctenophora]
+    [
+        [Porifera]
+        [, label=Parahoxozoa, dot=myred
+            [Placozoa]
+            [, label=Planulozoa, dot=myred
+                [Bilateria]
+                [Cnidaria]
+            ]
+        ]
+    ]
+]
+%%%REPLACEEND
+\end{forest}
+
+\end{document}
