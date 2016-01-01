@@ -1,0 +1,14 @@
+[, label=Opisthokonta, dot
+    [
+        [Nucleariida]
+        [Fungi]
+    ]
+    [, label=Holozoa, dot
+        [Filasterea]
+        [Ichthosporea]
+        [
+            [Animals]
+            [Choanoflagellata]
+        ]
+    ]
+]
