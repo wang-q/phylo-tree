@@ -18,6 +18,7 @@
 *.run.xml
 
 # Generated files
+*.tex
 *.pdf
 
 # webstorm project files
