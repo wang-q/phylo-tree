@@ -30,5 +30,3 @@ if (defined $forest) {
 path("out.tex")->spew($template);
 
 __END__
-
-perl tree.pl forest/test.forest forest/translation.csv
