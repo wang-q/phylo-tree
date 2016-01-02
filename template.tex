@@ -16,6 +16,7 @@
 \definecolor{myred}{RGB}{188,36,46}
 \definecolor{myblack}{RGB}{26,25,25}
 \definecolor{mygrey}{RGB}{129,130,132}
+\definecolor{mygreen}{RGB}{32,128,108}
 
 \tikzset{
     comment/.append  style={label={[font=\small]0:#1}},
@@ -36,7 +37,8 @@
             child anchor=west,
             anchor=west,
             edge path={
-                \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] (!u.parent anchor) -- +(0,0) coordinate[midway](.child m) |- (.child anchor)\forestoption{edge label};
+                \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] 
+                    (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
             },
         },
     },
@@ -52,14 +54,14 @@
     }
 %BEGIN%
 [, label=Animalia, dot
-    [Ctenophora]
+    [Ctenophora, comment=192]
     [
-        [Porifera]
+        [\color{mygreen}{Porifera}, comment=8579]
         [, label=Parahoxozoa, dot=myred
-            [Placozoa]
+            [Placozoa, comment=1]
             [, label=Planulozoa, dot=myred
                 [Bilateria]
-                [Cnidaria]
+                [Cnidaria, comment=13138]
             ]
         ]
     ]
