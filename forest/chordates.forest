@@ -1,0 +1,36 @@
+[
+    [, label=Deuterostome, bar=purple
+        [Echinodermata]
+        [, label=Notochord, bar=purple
+            [Cephalochordata, comment=Chordates]
+            [
+                [Urochodata]
+                [, label=Head, bar=purple
+                    [Myxini, comment=Craniates]
+                    [, label=Vertebral column, bar=purple
+                        [Petromyzontida, comment=Vertebrates]
+                        [, label={Jaws, mineralized skeleton}, bar=purple
+                            [Chondrichthyes, comment=Gnathostomes]
+                            [, label={Lungs or lung derivatives}, bar=purple
+                                [Actinopterygii, comment=Osteichthyans]
+                                [, label=Lobed fins, bar=purple
+                                    [Actinistia, comment=Sarcopterygii]
+                                    [
+                                        [Dipnoi]
+                                        [, label=Legs, bar=purple
+                                            [Amphibia, comment=Tetrapods]
+                                            [, label=Amniotic egg, bar=purple
+                                                [Reptilia, comment=Amniotes]
+                                                [Mammalia, label=Milk, bar=purple]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
