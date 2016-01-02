@@ -1,71 +1,71 @@
-[, label=Animals, dot
-    [Ctenophora]
-    [, dot=myred
-        [Porifera]
-        [, label=Parahoxozoa, dot=myred
-            [Placozoa]
-            [, label=Planulozoa, dot=myred
-                [Cnidaria]
-                [, label=Bilateria, dot
-                    [Xenacoelomorpha]
-                    [, label=Nephrozoa, dot=myred
-                        [, label=Deuterostomia, dot=myred
+[, label=\color{green}{Animals}, dot
+    [Ctenophora, comment=192]
+    [, dot=red
+        [\color{green}{Porifera}, comment=8579]
+        [, label=Parahoxozoa, dot=red
+            [Placozoa, comment=1]
+            [, label=Planulozoa, dot=red
+                [\color{green}{Cnidaria}, comment=13138]
+                [, label=\color{green}{Bilateria}, dot
+                    [Xenacoelomorpha, comment=380]
+                    [, label=Nephrozoa, dot=red
+                        [, label=\color{green}{Deuterostomia}, dot=red
                             [, label=Ambulacraria, dot
-                                [Echinodermata]
-                                [Hemichordata]
+                                [\color{green}{Echinodermata}, comment=7330]
+                                [Hemichordata, comment=118]
                             ]
-                            [, label=Chordata, dot
-                                [Cephalochordata]
+                            [, label=\color{green}{Chordata}, dot
+                                [\color{green}{Cephalochordata}, comment=33]
                                 [
-                                    [Urochordata]
-                                    [Craniata]
+                                    [\color{green}{Urochordata}, comment=3020]
+                                    [\color{green}{Craniata}, comment=64832]
                                 ]
                             ]
                         ]
-                        [, label=Protostomia, dot
-                            [Chaetognatha]
+                        [, label=\color{green}{Protostomia}, dot
+                            [Chaetognatha, comment=129]
                             [, label=Spiralia, dot
-                                [Bryozoa]
+                                [Bryozoa, comment=5900]
                                 [
-                                    [Entoprocta]
-                                    [Cycliophora]
+                                    [Entoprocta, comment=172]
+                                    [Cycliophora, comment=2]
                                 ]
                                 [
-                                    [, label=Trochozoa, dot=myred
-                                        [Annelida]
-                                        [Mollusca]
-                                        [Nemertea]
+                                    [, label=Trochozoa, dot=red
+                                        [\color{green}{Annelida}, comment=21707]
+                                        [\color{green}{Mollusca}, comment=74374]
+                                        [Nemertea, comment=1280]
                                         [
-                                            [Brachiopoda]
-                                            [Phoronida]
+                                            [Brachiopoda, comment=388]
+                                            [Phoronida, comment=18]
                                         ]
                                     ]
                                 ]
-                                [Gastrotricha]
-                                [Platyhelminthes]
+                                [Gastrotricha, comment=849]
+                                [\color{green}{Platyhelminthes}, comment=29285]
                                 [, label=Gnathifera, dot
-                                    [Gnathostomulida]
-                                    [Micrognathozoa]
-                                    [Rotifera]
+                                    [Gnathostomulida, comment=97]
+                                    [Micrognathozoa, comment=1]
+                                    [Rotifera, comment=3241]
                                 ]
                                 [Orthonectida]
-                                [Dicyemida]
+                                [Dicyemida, comment=1280]
                             ]
-                            [, label=Ecdysozoa, dot
+                            [, label=\color{green}{Ecdysozoa}, dot
                                 [, label=Scalidophora, dot
-                                    [Priapulida]
-                                    [Loricifera]
-                                    [Kinorhyncha]
+                                    [Priapulida, comment=19]
+                                    [Loricifera, comment=26]
+                                    [Kinorhyncha, comment=182]
                                 ]
                                 [, label=Nematoida, dot
-                                    [Nematoda]
-                                    [Nematomorpha]
+                                    [\color{green}{Nematoda}, comment=24773]
+                                    [Nematomorpha, comment=361]
                                 ]
                                 [, label=Panarthropoda, dot
-                                    [Tardigrada]
+                                    [Tardigrada, comment=1168]
                                     [
-                                        [Onychophora]
-                                        [Arthropoda]
+                                        [Onychophora, comment=177]
+                                        [\color{green}{Arthropoda}, comment={>1200000}]
                                     ]
                                 ]
                             ]
