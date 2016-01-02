@@ -1,0 +1,10 @@
+[
+    [, label=F, dot, tier=2
+        [A]
+        [B]
+        [, label=E, dot, tier=1
+            [C]
+            [D]
+        ]
+    ]
+]

@@ -1,0 +1,21 @@
+[
+    [, tier=5
+        [, tier=4
+            [, tier=3
+                [, tier=2
+                    [, tier=1
+                        [Human]
+                        [Chimp]
+                    ]
+                    [Rhesus]
+                ]
+                [, tier=1
+                    [Mouse]
+                    [Rat]
+                ]
+            ]
+            [Dog]
+        ]
+        [Opossum]
+    ]
+]
