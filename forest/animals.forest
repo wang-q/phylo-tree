@@ -9,12 +9,12 @@
                 [, label=\color{green}{Bilateria}, dot
                     [Xenacoelomorpha, comment=380]
                     [, label=Nephrozoa, dot=red
-                        [, label=\color{green}{Deuterostomia}, dot=red
-                            [, label=Ambulacraria, dot
+                        [, label=\color{green}{Deuterostomia}, tier=3, dot=red
+                            [, label=Ambulacraria, tier=1, dot
                                 [\color{green}{Echinodermata}, comment=7330]
                                 [Hemichordata, comment=118]
                             ]
-                            [, label=\color{green}{Chordata}, dot
+                            [, label=\color{green}{Chordata}, tier=2, dot
                                 [\color{green}{Cephalochordata}, comment=33]
                                 [
                                     [\color{green}{Urochordata}, comment=3020]
@@ -22,20 +22,20 @@
                                 ]
                             ]
                         ]
-                        [, label=\color{green}{Protostomia}, dot
+                        [, label=\color{green}{Protostomia}, tier=4, dot
                             [Chaetognatha, comment=129]
-                            [, label=Spiralia, dot
+                            [, label=Spiralia, tier=3, dot
                                 [Bryozoa, comment=5900]
-                                [
+                                [, tier=1
                                     [Entoprocta, comment=172]
                                     [Cycliophora, comment=2]
                                 ]
                                 [
-                                    [, label=Trochozoa, dot=red
+                                    [, label=Trochozoa, tier=2, dot=red
                                         [\color{green}{Annelida}, comment=21707]
                                         [\color{green}{Mollusca}, comment=74374]
                                         [Nemertea, comment=1280]
-                                        [
+                                        [, tier=1
                                             [Brachiopoda, comment=388]
                                             [Phoronida, comment=18]
                                         ]
@@ -43,7 +43,7 @@
                                 ]
                                 [Gastrotricha, comment=849]
                                 [\color{green}{Platyhelminthes}, comment=29285]
-                                [, label=Gnathifera, dot
+                                [, label=Gnathifera, tier=1, dot
                                     [Gnathostomulida, comment=97]
                                     [Micrognathozoa, comment=1]
                                     [Rotifera, comment=3241]
@@ -51,19 +51,19 @@
                                 [Orthonectida]
                                 [Dicyemida, comment=1280]
                             ]
-                            [, label=\color{green}{Ecdysozoa}, dot
-                                [, label=Scalidophora, dot
+                            [, label=\color{green}{Ecdysozoa}, tier=3, dot
+                                [, label=Scalidophora, tier=1, dot
                                     [Priapulida, comment=19]
                                     [Loricifera, comment=26]
                                     [Kinorhyncha, comment=182]
                                 ]
-                                [, label=Nematoida, dot
+                                [, label=Nematoida, tier=1, dot
                                     [\color{green}{Nematoda}, comment=24773]
                                     [Nematomorpha, comment=361]
                                 ]
-                                [, label=Panarthropoda, dot
+                                [, label=Panarthropoda, tier=2, dot
                                     [Tardigrada, comment=1168]
-                                    [
+                                    [, tier=1
                                         [Onychophora, comment=177]
                                         [\color{green}{Arthropoda}, comment={>1200000}]
                                     ]

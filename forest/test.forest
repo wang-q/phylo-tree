@@ -1,12 +1,12 @@
 [, label=Opisthokonta, dot
-    [
+    [, tier=1
         [Nucleariida]
         [Fungi]
     ]
     [, label=Holozoa, dot
         [Filasterea]
         [Ichthosporea]
-        [
+        [, tier=1
             [\color{red}{Animals}]
             [Choanoflagellata]
         ]
