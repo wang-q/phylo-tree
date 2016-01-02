@@ -18,32 +18,37 @@
 \definecolor{mygrey}{RGB}{129,130,132}
 
 \tikzset{
-    comment/.append  style={label={[font=\tiny]0:#1}},
+    comment/.append  style={label={[font=\small]0:#1}},
+}
+\forestset{
+    /tikz/label position=below left,
+    /tikz/label distance=-.2em,
+    dot/.style={tikz+={\fill[fill=#1] (.child anchor) circle[radius=2pt];}},
+    dot/.default=myblack,
+    .style={
+        where n children=0{tier=word}{},
+        for tree={
+            s sep=-0.2em,
+            grow=0,
+            reversed, % tree direction
+            align=left,
+            parent anchor=east,
+            child anchor=west,
+            anchor=west,
+            edge path={
+                \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] (!u.parent anchor) -- +(0,0) coordinate[midway](.child m) |- (.child anchor)\forestoption{edge label};
+            },
+        },
+    },
 }
 
 \begin{document}
 
 \begin{forest}
-    /tikz/label position=below left,
-    /tikz/label distance=-.2em,
-    dot/.style={tikz+={\fill[fill=#1] (.child anchor) circle[radius=2pt];}},
-    dot/.default=myblack,
     for tree={
-        % l sep-=1em,
-        s sep=-0.2em,
-        grow=0,
-        reversed, % tree direction
-        align=left,
-        parent anchor=east,
-        child anchor=west,
-        anchor=west,
         before typesetting nodes={
             if content={}{shape=coordinate}{}
         },
-        edge path={
-            \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] (!u.parent anchor) -- +(0,0) |- (.child anchor)\forestoption{edge label};
-        },
-        if n children=0{tier=word}{},
     }
 %BEGIN%
 [, label=Animalia, dot
