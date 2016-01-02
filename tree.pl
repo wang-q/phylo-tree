@@ -16,7 +16,7 @@ if (defined $ARGV[0] and path($ARGV[0])->is_file) {
         for my $tran (@trans) {
             my ($from, $to) = split /,/, $tran;
             next unless defined $from and defined $to;
-            $forest =~ s/\b$from\b/$to/g;
+            $forest =~ s/\b$from\b/$to/gi;
         }
     }
 }
