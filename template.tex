@@ -34,13 +34,13 @@
         for tree={
             s sep=-0.1em,
             grow=0,
-            reversed, % tree direction
+            reversed, % tree_direction
             align=left,
             parent anchor=east,
             child anchor=west,
             anchor=west,
             edge path={
-                \noexpand\path[draw, grey, line width=1pt, \forestoption{edge}] 
+                \noexpand\path[draw, grey, line width=1pt, \forestoption{edge}]
                     (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
             },
         },

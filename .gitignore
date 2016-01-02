@@ -21,6 +21,9 @@
 *.tex
 *.pdf
 
+# Template
+!template.tex
+
 # webstorm project files
 .idea
 
