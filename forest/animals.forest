@@ -1,0 +1,78 @@
+[, label=Animals, dot
+    [Ctenophora]
+    [, dot=myred
+        [Porifera]
+        [, label=Parahoxozoa, dot=myred
+            [Placozoa]
+            [, label=Planulozoa, dot=myred
+                [Cnidaria]
+                [, label=Bilateria, dot
+                    [Xenacoelomorpha]
+                    [, label=Nephrozoa, dot=myred
+                        [, label=Deuterostomia, dot=myred
+                            [, label=Ambulacraria, dot
+                                [Echinodermata]
+                                [Hemichordata]
+                            ]
+                            [, label=Chordata, dot
+                                [Cephalochordata]
+                                [
+                                    [Urochordata]
+                                    [Craniata]
+                                ]
+                            ]
+                        ]
+                        [, label=Protostomia, dot
+                            [Chaetognatha]
+                            [, label=Spiralia, dot
+                                [Bryozoa]
+                                [
+                                    [Entoprocta]
+                                    [Cycliophora]
+                                ]
+                                [
+                                    [, label=Trochozoa, dot=myred
+                                        [Annelida]
+                                        [Mollusca]
+                                        [Nemertea]
+                                        [
+                                            [Brachiopoda]
+                                            [Phoronida]
+                                        ]
+                                    ]
+                                ]
+                                [Gastrotricha]
+                                [Platyhelminthes]
+                                [, label=Gnathifera, dot
+                                    [Gnathostomulida]
+                                    [Micrognathozoa]
+                                    [Rotifera]
+                                ]
+                                [Orthonectida]
+                                [Dicyemida]
+                            ]
+                            [, label=Ecdysozoa, dot
+                                [, label=Scalidophora, dot
+                                    [Priapulida]
+                                    [Loricifera]
+                                    [Kinorhyncha]
+                                ]
+                                [, label=Nematoida, dot
+                                    [Nematoda]
+                                    [Nematomorpha]
+                                ]
+                                [, label=Panarthropoda, dot
+                                    [Tardigrada]
+                                    [
+                                        [Onychophora]
+                                        [Arthropoda]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
