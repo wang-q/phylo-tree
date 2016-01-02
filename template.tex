@@ -13,23 +13,26 @@
 \punctstyle{plain}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 
-\definecolor{myred}{RGB}{188,36,46}
-\definecolor{myblack}{RGB}{26,25,25}
-\definecolor{mygrey}{RGB}{129,130,132}
-\definecolor{mygreen}{RGB}{32,128,108}
+\definecolor{red}{RGB}{188,36,46}
+\definecolor{black}{RGB}{26,25,25}
+\definecolor{grey}{RGB}{129,130,132}
+\definecolor{green}{RGB}{32,128,108}
+\definecolor{purple}{RGB}{160,90,150}
 
 \tikzset{
     comment/.append  style={label={[font=\small]0:#1}},
 }
 \forestset{
     /tikz/label position=below left,
-    /tikz/label distance=-.2em,
+    /tikz/label distance=.1em,
     dot/.style={tikz+={\fill[fill=#1] (.child anchor) circle[radius=2pt];}},
-    dot/.default=myblack,
+    dot/.default=black,
+    bar/.style={tikz+={\draw[color=#1,line width=2pt] let \p1 = (!u.parent anchor), \p2 = (.child anchor) in ($(\x1, \y2 - 0.5em)!0.5!(\x2, \y2)$) -- ($(\x1, \y2 + 0.5em)!0.5!(\x2, \y2)$);}},
+    bar/.default=black,
     .style={
         where n children=0{tier=word}{},
         for tree={
-            s sep=-0.2em,
+            s sep=-0.1em,
             grow=0,
             reversed, % tree direction
             align=left,
@@ -37,7 +40,7 @@
             child anchor=west,
             anchor=west,
             edge path={
-                \noexpand\path[draw, mygrey, line width=1pt, \forestoption{edge}] 
+                \noexpand\path[draw, grey, line width=1pt, \forestoption{edge}] 
                     (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
             },
         },
@@ -55,11 +58,11 @@
 %BEGIN%
 [, label=Animalia, dot
     [Ctenophora, comment=192]
-    [
-        [\color{mygreen}{Porifera}, comment=8579]
-        [, label=Parahoxozoa, dot=myred
+    [, label=NOTE, bar=red
+        [\color{green}{Porifera}, comment=8579]
+        [, label=\color{green}{Parahoxozoa}, dot=red
             [Placozoa, comment=1]
-            [, label=Planulozoa, dot=myred
+            [, label=Planulozoa, dot=red
                 [Bilateria]
                 [Cnidaria, comment=13138]
             ]
