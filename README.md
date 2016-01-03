@@ -23,3 +23,16 @@ Then create pdfs.
 ```bash
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 ```
+
+## Dependences
+
+* LaTeX
+* LaTeX packages
+    * XeLaTeX
+    * xeCJK
+    * Tikz
+    * Forest
+* Perl
+* Perl modules
+    * Path::Tiny
+    * Bio::Phylo

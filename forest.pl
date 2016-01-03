@@ -13,6 +13,21 @@ use Path::Tiny;
 # GetOpt section
 #----------------------------------------------------------#
 
+=head1 NAME
+
+forest.pl - tikz/forest to tex
+
+=head1 SYNOPSIS
+
+    perl forest.pl <forest file> [options]
+      Options:
+        --help          -?          brief help message
+        --trans         -t  STR     translation file, csv
+        --reverse       -r          tree directrion
+        --pdf           -p          create pdf with xelatex
+
+=cut
+
 GetOptions(
     'help|?'    => sub { HelpMessage(0) },
     'trans|t=s' => \( my $translation ),
@@ -29,6 +44,10 @@ if ( defined $ARGV[0] and path( $ARGV[0] )->is_file ) {
     $outdir  = path( $ARGV[0] )->parent->absolute->stringify;
     $outbase = path( $ARGV[0] )->basename( ".forest", ".tree" );
 }
+
+#----------------------------------------------------------#
+# Run
+#----------------------------------------------------------#
 
 if ( defined $translation and path($translation)->is_file ) {
     $outbase .= ".trans";

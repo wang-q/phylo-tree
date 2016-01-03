@@ -3,16 +3,38 @@ use strict;
 use warnings;
 use autodie;
 
+use Getopt::Long qw(HelpMessage);
 use FindBin;
-use Path::Tiny;
+use YAML qw(Dump Load DumpFile LoadFile);
 
+use Path::Tiny;
 use Bio::Phylo::IO;
 use List::Util qw(max);
-use YAML qw(Dump Load DumpFile LoadFile);
+
+#----------------------------------------------------------#
+# GetOpt section
+#----------------------------------------------------------#
+
+=head1 NAME
+
+tree.pl - newick to tikz/forest
+
+=head1 SYNOPSIS
+
+    perl tree.pl <newick file> [options]
+      Options:
+        --help          -?          brief help message
+        --format        -f  STR     Bio::Phylo supported tree formats, default is [newick]
+
+=cut
 
 my $file;
 my $outfile;
-my $format;
+
+GetOptions(
+    'help|?' => sub { HelpMessage(0) },
+    'format|f=s' => \( my $format = "newick" ),
+) or HelpMessage(1);
 
 if ( !defined $ARGV[0] ) {
     die "Need a newick file\n";
@@ -28,7 +50,11 @@ else {
     $outfile->remove;
 }
 
-my $tree = Bio::Phylo::IO->parse( -file => $file, -format => "newick" )->next;
+#----------------------------------------------------------#
+# Run
+#----------------------------------------------------------#
+
+my $tree = Bio::Phylo::IO->parse( -file => $file, -format => $format )->next;
 
 my $max_depth = $tree->get_tallest_tip->calc_nodes_to_root;
 warn Dump {
