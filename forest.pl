@@ -23,6 +23,7 @@ forest.pl - tikz/forest to tex
       Options:
         --help          -?          brief help message
         --trans         -t  STR     translation file, csv
+        --append        -a          append translations
         --reverse       -r          tree directrion
         --pdf           -p          create pdf with xelatex
 
@@ -31,6 +32,7 @@ forest.pl - tikz/forest to tex
 GetOptions(
     'help|?'    => sub { HelpMessage(0) },
     'trans|t=s' => \( my $translation ),
+    'append|a'  => \( my $append ),
     'reverse|r' => \( my $reverse ),
     'pdf|p'     => \( my $create_pdf ),
 ) or HelpMessage(1);
@@ -55,7 +57,12 @@ if ( defined $translation and path($translation)->is_file ) {
     for my $tran (@trans) {
         my ( $from, $to ) = split /,/, $tran;
         next unless defined $from and defined $to;
-        $forest =~ s/\b$from\b/$to/gi;
+        if ($append) {
+            $forest =~ s/\b$from\b/$from $to/gi;
+        }
+        else {
+            $forest =~ s/\b$from\b/$to/gi;
+        }
     }
 }
 
