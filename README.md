@@ -24,6 +24,17 @@ Then create pdfs.
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 ```
 
+## Create common tree from NCBI
+
+* On the homepage of [NCBI Taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy), click the link of
+[Common Tree](http://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi).
+
+* Create a local plain text file, paste all the scientific names of desired into it. Use `Browse...` and `Add from file:` buttons to upload the newly created file.
+
+* Choose `phylip tree` then click the button of `Save as`.
+
+* A file with default name `phyliptree.phy` created.
+
 ## Dependences
 
 * LaTeX
