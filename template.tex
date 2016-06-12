@@ -29,28 +29,24 @@
     dot/.default=black,
     bar/.style={tikz+={\draw[color=#1,line width=2pt] let \p1 = (!u.parent anchor), \p2 = (.child anchor) in ($(\x1, \y2 - 0.5em)!0.5!(\x2, \y2)$) -- ($(\x1, \y2 + 0.5em)!0.5!(\x2, \y2)$);}},
     bar/.default=black,
-    .style={
-        where n children=0{tier=word}{},
-        for tree={
-            s sep=-0.1em,
-            grow=0,
-            reversed, % tree_direction
-            align=left,
-            parent anchor=east,
-            child anchor=west,
-            anchor=west,
-            edge path={
-                \noexpand\path[draw, grey, line width=1pt, \forestoption{edge}]
-                    (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
-            },
-        },
-    },
 }
 
 \begin{document}
 
 \begin{forest}
+    where n children=0{tier=word}{},
     for tree={
+        s sep=-0.1em,
+        grow=0,
+        reversed, % tree_direction
+        align=left,
+        parent anchor=east,
+        child anchor=west,
+        anchor=west,
+        edge path={
+            \noexpand\path[draw, grey, line width=1pt, \forestoption{edge}]
+                (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+        },
         before typesetting nodes={
             if content={}{shape=coordinate}{}
         },
