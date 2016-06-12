@@ -3,7 +3,7 @@
 ## Manually create tikz/forest files
 
 ```bash
-perl forest.pl forest/test.forest -t forest/translation.csv
+perl forest.pl forest/test.forest -t translation/translation.csv -a
 ```
 
 will create `forest/test.trans.tex`.
@@ -35,6 +35,24 @@ Use `Browse...` and `Add from file:` buttons to upload the newly created file.
 * Choose `phylip tree` then click the button of `Save as`.
 
 * A file with default name `phyliptree.phy` created.
+Edit it with Dendroscope and export as a .newick file.
+
+```bash
+perl tree.pl tree/Oleaceae.newick
+cp tree/Oleaceae.forest forest/
+```
+
+* Edit `forest/Oleaceae.forest` manually.
+
+    * Replace tribe labels with chromosome numbers.
+
+    * Replace tribe dots with bars.
+
+    * Sort genera by names.
+
+```bash
+perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
+```
 
 ## Dependences
 
