@@ -53,9 +53,10 @@ if ( defined $ARGV[0] and path( $ARGV[0] )->is_file ) {
 
 if ( defined $translation and path($translation)->is_file ) {
     $outbase .= ".trans";
-    my @trans = path($translation)->lines( { chomp => 1 } );
-    for my $tran (@trans) {
-        my ( $from, $to ) = split /,/, $tran;
+    my @lines = path($translation)->lines( { chomp => 1 } );
+    for my $line (@lines) {
+        next if $line =~ /^#/;
+        my ( $from, $to ) = split /,/, $line;
         next unless defined $from and defined $to;
         if ($append) {
             $forest =~ s/\b$from\b/$from $to/gi;
