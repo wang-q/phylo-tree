@@ -25,12 +25,12 @@
             [Picconia]
             [Priogymnanthus]
             [Schrebera]
-            [Syringa]
+            [Syringa, comment={23/22/24}]
         ]
-        [, label={Myxopyreae x=11}, bar=purple, tier=1
+        [, label={Myxopyreae}, bar=purple, tier=1
             [Dimetra]
-            [Myxopyrum]
-            [Nyctanthes]
+            [Myxopyrum, comment={11}]
+            [Nyctanthes, comment={22/23}]
         ]
         [, label={Jasmineae x=13}, bar=purple, tier=1
             [Jasminum]
