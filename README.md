@@ -1,5 +1,9 @@
 # Create phylogenetics trees by xelatex/tikz/forest.
 
+## A picture is worth a thousand words
+
+![template.png](template.png)
+
 ## Manually create tikz/forest files
 
 ```bash
