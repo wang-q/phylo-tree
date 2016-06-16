@@ -12,16 +12,24 @@ Add `--pdf` or `-p` will create `.tex` and `.pdf`.
 
 ## Convert newick to tikz/forest file
 
+Create `tree/hg38.7way.commonNames.forest` by
+
 ```bash
 perl tree.pl tree/hg38.7way.commonNames.nh
 ```
 
-will create `tree/hg38.7way.commonNames.forest`. Edit this file if needed.
-
-Then create pdfs.
+Edit this file if needed. Then create pdfs.
 
 ```bash
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
+```
+
+Or in one line, will create `./output.pdf`.
+
+```bash
+perl tree.pl tree/hg38.7way.commonNames.nh -o stdout \
+    | perl forest.pl stdin -r -p
+
 ```
 
 ## Create common tree from NCBI
