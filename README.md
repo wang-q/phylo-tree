@@ -2,19 +2,42 @@
 
 ## A picture is worth a thousand words
 
+Two means more.
+
 ![template.png](template.png)
 
 ![template.trans.png](template.trans.png)
 
-## Manually create tikz/forest files
+## Tex/pdf files from manually created tikz/forest files
+
+[A forest file](forest/test.forest).
+
+```text
+[, label=Opisthokonta, dot
+    [, tier=1
+        [Nucleariida]
+        [Fungi]
+    ]
+    [, label=Holozoa, dot
+        [Filasterea]
+        [Ichthosporea]
+        [, tier=1
+            [\color{red}{Animals}]
+            [Choanoflagellata]
+        ]
+    ]
+]
+```
+
+The folllowing command will create `forest/test.trans.tex`.
 
 ```bash
 perl forest.pl forest/test.forest -t translation/translation.csv -a
 ```
 
-will create `forest/test.trans.tex`.
+Adding `-p` will also create `.pdf`.
 
-Add `--pdf` or `-p` will create `.tex` and `.pdf`.
+![test.trans.png](forest/test.trans.png)
 
 ## Convert newick to tikz/forest file
 
@@ -35,7 +58,6 @@ Or in one line, will create `./output.pdf`.
 ```bash
 perl tree.pl tree/hg38.7way.commonNames.nh -o stdout \
     | perl forest.pl stdin -r -p
-
 ```
 
 ## Create common tree from NCBI
