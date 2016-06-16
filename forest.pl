@@ -53,7 +53,6 @@ if ( defined $ARGV[0] ) {
     }
 }
 
-# print YAML::Syck::Dump($forest);
 
 #----------------------------------------------------------#
 # Run
@@ -61,25 +60,30 @@ if ( defined $ARGV[0] ) {
 
 my $template = path( $FindBin::RealBin, "template.tex" )->slurp;
 
-if ( defined $forest and $forest =~ /\[/ ) {
-    if ( defined $translation and path($translation)->is_file ) {
-        $outbase .= ".trans";
-        my @lines = path($translation)->lines( { chomp => 1 } );
-        for my $line (@lines) {
-            next if $line =~ /^#/;
-            my ( $from, $to ) = split /,/, $line;
-            next unless defined $from and defined $to;
-            if ($append) {
-                $forest =~ s/\b$from\b/$from $to/gi;
-            }
-            else {
-                $forest =~ s/\b$from\b/$to/gi;
-            }
+unless ( defined $forest and $forest =~ /\[/ ) {
+    $template =~ /\%BEGIN(.+)\%END/s;
+    $forest = $1;
+}
+
+if ( defined $translation and path($translation)->is_file ) {
+    $outbase .= ".trans";
+    my @lines = path($translation)->lines( { chomp => 1 } );
+    for my $line (@lines) {
+        next if $line =~ /^#/;
+        my ( $from, $to ) = split /,/, $line;
+        next unless defined $from and defined $to;
+        if ($append) {
+            $forest =~ s/\b$from\b/$from $to/gi;
+        }
+        else {
+            $forest =~ s/\b$from\b/$to/gi;
         }
     }
-
-    $template =~ s/\%BEGIN.+\%END/$forest/s;
 }
+
+# print YAML::Syck::Dump($forest);
+
+$template =~ s/\%BEGIN.+\%END/$forest/s;
 
 if ($reverse) {
     $template =~ s/\s+^.*tree_direction.*$//m;

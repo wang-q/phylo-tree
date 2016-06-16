@@ -4,6 +4,8 @@
 
 ![template.png](template.png)
 
+![template.trans.png](template.trans.png)
+
 ## Manually create tikz/forest files
 
 ```bash
