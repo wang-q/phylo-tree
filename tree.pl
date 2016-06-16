@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use autodie;
 
-use Getopt::Long qw(HelpMessage);
+use Getopt::Long;
 use FindBin;
-use YAML qw(Dump Load DumpFile LoadFile);
+use YAML::Syck;
 
 use Path::Tiny;
 use Bio::Phylo::IO;
@@ -21,20 +21,20 @@ tree.pl - newick to tikz/forest
 
 =head1 SYNOPSIS
 
-    perl tree.pl <newick file> [options]
+    perl tree.pl <infile> [options]
       Options:
         --help          -?          brief help message
         --format        -f  STR     Bio::Phylo supported tree formats, default is [newick]
+        --out           -o  STR     output filename, default is [infile =~ s/\.\w+/.forest/]
+                                    stdout for screen
 
 =cut
 
-my $file;
-my $outfile;
-
 GetOptions(
-    'help|?' => sub { HelpMessage(0) },
+    'help|?' => sub { Getopt::Long::HelpMessage(0) },
     'format|f=s' => \( my $format = "newick" ),
-) or HelpMessage(1);
+    'out|o=s' => \( my $outfile ),
+) or Getopt::Long::HelpMessage(1);
 
 if ( !defined $ARGV[0] ) {
     die "Need a newick file\n";
@@ -42,42 +42,41 @@ if ( !defined $ARGV[0] ) {
 elsif ( !path( $ARGV[0] )->is_file ) {
     die "$ARGV[0] doesn't exist\n";
 }
-else {
-    $file = path( $ARGV[0] )->absolute->stringify;
-    my $outdir = path($file)->parent->absolute->stringify;
-    my $outbase = path($file)->basename( ".newick", ".nwk", ".nw", ".nh" );
-    $outfile = path( $outdir, $outbase . ".forest" );
-    $outfile->remove;
+
+if ( !defined $outfile ) {
+    $outfile = $ARGV[0];
+    $outfile =~ s/\.\w+$/.forest/;
 }
 
 #----------------------------------------------------------#
 # Run
 #----------------------------------------------------------#
 
-my $tree = Bio::Phylo::IO->parse( -file => $file, -format => $format )->next;
+my $tree = Bio::Phylo::IO->parse( -file => $ARGV[0], -format => $format )->next;
 
 my $max_depth = $tree->get_tallest_tip->calc_nodes_to_root;
-warn Dump {
+warn YAML::Syck::Dump {
     max_depth => $max_depth,
-    outfile   => $outfile->stringify
+    outfile   => $outfile,
 };
 
-$outfile->append("[\n");
+my $out_string;
+$out_string .= "[\n";
 $tree->visit_breadth_first(
     -order           => 'rtl',
-    '-pre_daughter'  => sub { $outfile->append("\n"); },
+    '-pre_daughter'  => sub { $out_string .= "\n"; },
     '-post_daughter' => sub {
         my $str;
-        $str .= " " x 4 x shift->calc_nodes_to_root;
-        $str .= "]\n";
-        $outfile->append($str);
+        $str        .= " " x 4 x shift->calc_nodes_to_root;
+        $str        .= "]\n";
+        $out_string .= $str;
     },
     '-in' => sub {
         my $node = shift;
 
         #return if $node->is_internal;
-        my $depth         = $node->calc_nodes_to_root;
-        my @depths        = map { $_->calc_nodes_to_root } @{ $node->get_terminals };
+        my $depth = $node->calc_nodes_to_root;
+        my @depths = map { $_->calc_nodes_to_root } @{ $node->get_terminals };
         my $reverse_depth = max(@depths) - $depth;
         if ( $node->is_internal ) {
             my $str;
@@ -88,7 +87,7 @@ $tree->visit_breadth_first(
                 $str .= ", dot";
             }
             $str .= ", tier=" . $reverse_depth;
-            $outfile->append($str);
+            $out_string .= $str;
         }
         else {
             my $str;
@@ -99,8 +98,15 @@ $tree->visit_breadth_first(
                 $str .= ", tier=" . $reverse_depth;
             }
             $str .= "]\n";
-            $outfile->append($str);
+            $out_string .= $str;
         }
     },
 );
-$outfile->append("]\n");
+$out_string .= "]\n";
+
+if ( lc $outfile eq "stdout" ) {
+    print $out_string;
+}
+else {
+    path($outfile)->spew($out_string);
+}
