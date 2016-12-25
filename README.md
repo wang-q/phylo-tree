@@ -1,4 +1,4 @@
-# Create phylogenetics trees by xelatex/tikz/forest.
+# Create phylogenetic trees by xelatex/tikz/forest.
 
 ## A picture is worth a thousand words
 
@@ -39,7 +39,7 @@ Adding `-p` will also create `.pdf`.
 
 ![test.trans.png](forest/test.trans.png)
 
-## Convert newick to tikz/forest file
+## Starting from a newick tree
 
 Create `tree/hg38.7way.commonNames.forest` by
 
@@ -47,7 +47,10 @@ Create `tree/hg38.7way.commonNames.forest` by
 perl tree.pl tree/hg38.7way.commonNames.nh
 ```
 
-Edit this file if needed. Then create pdfs.
+Edit this file if needed, such as adding annotations for nodes and branches, adding comments or
+adjusting colors.
+
+Then create pdfs.
 
 ```bash
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
