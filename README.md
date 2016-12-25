@@ -41,6 +41,13 @@ Adding `-p` will also create `.pdf`.
 
 ## Starting from a newick tree
 
+Get a newick file from UCSC
+
+```bash
+curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz7way/hg38.7way.commonNames.nh \
+    > tree/hg38.7way.commonNames.nh
+```
+
 Create `tree/hg38.7way.commonNames.forest` by
 
 ```bash
@@ -59,22 +66,23 @@ perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 Or in one line, will create `./output.pdf`.
 
 ```bash
-perl tree.pl tree/hg38.7way.commonNames.nh -o stdout \
+curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.scientificNames.nh \
+    | perl tree.pl stdin -o stdout \
     | perl forest.pl stdin -r -p
 ```
 
 ## Create common tree from NCBI
 
 * On the homepage of [NCBI Taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy), click the link of
-[Common Tree](http://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi).
+  [Common Tree](http://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi).
 
-* Create a local plain text file, paste all the scientific names of desired into it.
-Use `Browse...` and `Add from file:` buttons to upload the newly created file.
+* Create a local plain text file, paste all the scientific names of desired into it. Use `Browse...`
+  and `Add from file:` buttons to upload the newly created file.
 
 * Choose `phylip tree` then click the button of `Save as`.
 
-* A file with default name `phyliptree.phy` created.
-Edit it with Dendroscope and export as a .newick file.
+* A file with default name `phyliptree.phy` created. Edit it with Dendroscope and export as a
+  .newick file.
 
 ```bash
 perl tree.pl tree/Oleaceae.newick
@@ -96,8 +104,10 @@ perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 ## Dependences
 
 * LaTeX (I use MacTex 2015/2016)
-* LaTeX packages
+* LaTeX utilities
     * XeLaTeX
+    * latexmk
+* LaTeX packages
     * xeCJK
     * Tikz
     * Forest
