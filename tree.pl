@@ -88,7 +88,6 @@ $tree->visit_breadth_first(
         #@type Bio::Phylo::Forest::Node
         my $node = shift;
 
-        #return if $node->is_internal;
         my $depth         = $node->calc_nodes_to_root;
         my @depths        = map { $_->calc_nodes_to_root } @{ $node->get_terminals };
         my $reverse_depth = List::Util::max(@depths) - $depth;

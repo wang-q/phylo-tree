@@ -109,7 +109,7 @@ perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
     * latexmk
 * LaTeX packages
     * xeCJK
-    * Tikz
+    * TikZ
     * Forest
 * Perl
 * Perl modules
