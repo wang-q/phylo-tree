@@ -9,7 +9,7 @@ use YAML::Syck;
 
 use Path::Tiny;
 use Bio::Phylo::IO;
-use List::Util qw(max);
+use List::Util;
 
 #----------------------------------------------------------#
 # GetOpt section
@@ -36,11 +36,19 @@ GetOptions(
     'out|o=s' => \( my $outfile ),
 ) or Getopt::Long::HelpMessage(1);
 
+my $contents;
+
 if ( !defined $ARGV[0] ) {
     die "Need a newick file\n";
 }
+elsif ( lc $ARGV[0] eq "stdin" ) {
+    $contents = do { local $/; <STDIN> };
+}
 elsif ( !path( $ARGV[0] )->is_file ) {
     die "$ARGV[0] doesn't exist\n";
+}
+else {
+    $contents = path( $ARGV[0] )->slurp;
 }
 
 if ( !defined $outfile ) {
@@ -48,11 +56,15 @@ if ( !defined $outfile ) {
     $outfile =~ s/\.\w+$/.forest/;
 }
 
+# latex panics with underscores
+$contents =~ s/_/-/g;
+
 #----------------------------------------------------------#
 # Run
 #----------------------------------------------------------#
 
-my $tree = Bio::Phylo::IO->parse( -file => $ARGV[0], -format => $format )->next;
+#@type Bio::Phylo::Forest::Tree
+my $tree = Bio::Phylo::IO->parse( -string => $contents, -format => $format )->next;
 
 my $max_depth = $tree->get_tallest_tip->calc_nodes_to_root;
 warn YAML::Syck::Dump {
@@ -72,12 +84,14 @@ $tree->visit_breadth_first(
         $out_string .= $str;
     },
     '-in' => sub {
+
+        #@type Bio::Phylo::Forest::Node
         my $node = shift;
 
         #return if $node->is_internal;
-        my $depth = $node->calc_nodes_to_root;
-        my @depths = map { $_->calc_nodes_to_root } @{ $node->get_terminals };
-        my $reverse_depth = max(@depths) - $depth;
+        my $depth         = $node->calc_nodes_to_root;
+        my @depths        = map { $_->calc_nodes_to_root } @{ $node->get_terminals };
+        my $reverse_depth = List::Util::max(@depths) - $depth;
         if ( $node->is_internal ) {
             my $str;
             $str .= " " x 4 x $depth;
@@ -110,3 +124,5 @@ if ( lc $outfile eq "stdout" ) {
 else {
     path($outfile)->spew($out_string);
 }
+
+__END__
