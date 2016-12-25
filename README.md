@@ -4,9 +4,9 @@
 
 Two means more.
 
-![template.png](template.png)
+![template.png](example/template.png)
 
-![template.trans.png](template.trans.png)
+![template.trans.png](example/template.trans.png)
 
 ## Tex/pdf files from manually created tikz/forest files
 
@@ -37,7 +37,7 @@ perl forest.pl forest/test.forest -t translation/translation.csv -a
 
 Adding `-p` will also create `.pdf`.
 
-![test.trans.png](forest/test.trans.png)
+![test.trans.png](example/test.trans.png)
 
 ## Starting from a newick tree
 
