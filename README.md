@@ -63,7 +63,14 @@ Then create pdfs.
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 ```
 
-Or in one line, will create [`output.pdf`](example/output.pdf) .
+With branch lengthes.
+
+```bash
+perl tree.pl tree/hg38.7way.commonNames.nh -w -o stdout \
+    | perl forest.pl stdin -r -p
+```
+
+Or in one line, will create [`output.pdf`](example/output.pdf).
 
 ```bash
 curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.scientificNames.nh \
