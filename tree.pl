@@ -145,7 +145,7 @@ $tree->visit_breadth_first(
             $str .= " " x 4 x $cur_depth;
             $str .= "[";
             if ( length $node->get_name ) {
-                $str .= $node->get_name;
+                $str .= sprintf "{%s}", $node->get_name;
             }
             else {
                 $str .= "{~}";    # non-breaking space in latex
