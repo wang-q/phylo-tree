@@ -108,6 +108,14 @@ cp tree/Oleaceae.forest forest/
 perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 ```
 
+## Why not FigTree/Dendroscope/MEGA?
+
+For full controls on the tree, fonts, colors, line widths, annotations, etc.
+
+The figure below is a result file opened in Adobe Illustrator. Very clean vector graphics.
+
+![clean vector graphics](example/clean-vector-graphics.png)
+
 ## Dependences
 
 * LaTeX (I use MacTex 2015/2016)
