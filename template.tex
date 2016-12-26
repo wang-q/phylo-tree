@@ -36,8 +36,8 @@
 \begin{forest}
     where n children=0{tier=word}{},
     for tree={
-        s sep=-0.1em,
-        grow=0,
+        s sep=-0.1em, % make siblings closer
+        grow=0, % 0 degrees is to the right
         reversed, % tree_direction
         align=left,
         parent anchor=east,
