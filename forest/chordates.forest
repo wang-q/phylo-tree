@@ -1,5 +1,5 @@
 [
-    [, label=Deuterostome, bar=purple
+    [, label=Deuterostome, dot
         [Echinodermata]
         [, label=Notochord, bar=purple
             [Cephalochordata, comment=Chordates]
