@@ -1,6 +1,16 @@
 # Create phylogenetic trees by xelatex/tikz/forest.
 
-## A picture is worth a thousand words
+[TOC levels=1-3]: # " "
+- [Create phylogenetic trees by xelatex/tikz/forest.](#create-phylogenetic-trees-by-xelatextikzforest)
+- [A picture is worth a thousand words](#a-picture-is-worth-a-thousand-words)
+- [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
+- [Starting from a newick tree](#starting-from-a-newick-tree)
+- [Create common tree from NCBI](#create-common-tree-from-ncbi)
+- [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
+- [Dependences](#dependences)
+
+
+# A picture is worth a thousand words
 
 Two means more.
 
@@ -8,7 +18,7 @@ Two means more.
 
 ![template.trans.png](example/template.trans.png)
 
-## Tex/pdf files from manually created tikz/forest files
+# Tex/pdf files from manually created tikz/forest files
 
 [A forest file](forest/test.forest).
 
@@ -39,7 +49,7 @@ Adding `-p` will also create `.pdf`.
 
 ![test.trans.png](example/test.trans.png)
 
-## Starting from a newick tree
+# Starting from a newick tree
 
 Get a newick file from UCSC
 
@@ -78,7 +88,7 @@ curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.sci
     | perl forest.pl stdin -r -p
 ```
 
-## Create common tree from NCBI
+# Create common tree from NCBI
 
 * On the homepage of [NCBI Taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy), click the link of
   [Common Tree](http://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi).
@@ -108,7 +118,7 @@ cp tree/Oleaceae.forest forest/
 perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 ```
 
-## Why not FigTree/Dendroscope/MEGA?
+# Why not FigTree/Dendroscope/MEGA?
 
 For full controls on the tree, fonts, colors, line widths, annotations, etc.
 
@@ -116,9 +126,9 @@ The figure below is a result file opened in Adobe Illustrator. Very clean vector
 
 ![clean vector graphics](example/clean-vector-graphics.png)
 
-## Dependences
+# Dependences
 
-* LaTeX (I use MacTex 2015/2016)
+* LaTeX (I use MacTex 2015/2016/2017)
 * LaTeX utilities
     * XeLaTeX
     * latexmk
