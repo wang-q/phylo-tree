@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use autodie;
 
-use Getopt::Long;
+use Getopt::Long qw();
 use FindBin;
-use YAML::Syck;
+use YAML::Syck qw();
 
 use Path::Tiny;
 
@@ -30,7 +30,7 @@ forest.pl - tikz/forest to tex
 
 =cut
 
-GetOptions(
+Getopt::Long::GetOptions(
     'help|?'    => sub { Getopt::Long::HelpMessage(0) },
     'trans|t=s' => \( my $translation ),
     'append|a'  => \( my $append ),

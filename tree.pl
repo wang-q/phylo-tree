@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use autodie;
 
-use Getopt::Long;
+use Getopt::Long qw();
 use FindBin;
-use YAML::Syck;
+use YAML::Syck qw();
 
 use Path::Tiny;
 use Bio::Phylo::IO;
@@ -32,7 +32,7 @@ tree.pl - newick to tikz/forest
 
 =cut
 
-GetOptions(
+Getopt::Long::GetOptions(
     'help|?' => sub { Getopt::Long::HelpMessage(0) },
     'format|f=s' => \( my $format = "newick" ),
     'wbl|w'      => \( my $wbl ),
