@@ -22,22 +22,24 @@
               (
                 (
                   (
-                    Arecales,
                     (
-                      Poales,
+                      Arecales,
                       (
-                        Commelinales,
-                        Zingiberales
+                        Poales,
+                        (
+                          Commelinales,
+                          Zingiberales
+                        )
                       )
-                    )
+                    ),
+                    Asparagales
                   ),
-                  Asparagales
+                  Liliales
                 ),
-                Liliales
-              ),
-              (
-                Dioscoreales,
-                Pandanales
+                (
+                  Dioscoreales,
+                  Pandanales
+                )
               ),
               Petrosaviales
             ),

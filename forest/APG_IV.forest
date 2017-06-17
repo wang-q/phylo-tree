@@ -1,0 +1,174 @@
+[
+    [, label=Angiosperms, dot, tier=21
+        [{Amborellales}, tier=0]
+        [, tier=20
+            [{Nymphaeales}, tier=0]
+            [, tier=19
+                [{Austrobaileyales}, tier=0]
+                [, tier=18
+                    [, tier=2
+                        [, tier=1
+                            [{Magnoliales}, tier=0]
+                            [{Laurales}, tier=0]
+                        ]
+                        [, tier=1
+                            [{Canellales}, tier=0]
+                            [{Piperales}, tier=0]
+                        ]
+                    ]
+                    [{Chloranthales}, tier=0]
+                    [, label=Monots, dot, tier=9
+                        [, tier=8
+                            [, tier=7
+                                [, tier=6
+                                    [, tier=5
+                                        [, tier=4
+                                            [, tier=3
+                                                [{Arecales}, tier=0]
+                                                [, tier=2
+                                                    [{Poales}, tier=0]
+                                                    [, tier=1
+                                                        [{Commelinales}, tier=0]
+                                                        [{Zingiberales}, tier=0]
+                                                    ]
+                                                ]
+                                            ]
+                                            [{Asparagales}, tier=0]
+                                        ]
+                                        [{Liliales}, tier=0]
+                                    ]
+                                    [, tier=1
+                                        [{Dioscoreales}, tier=0]
+                                        [{Pandanales}, tier=0]
+                                    ]
+                                ]
+                                [{Petrosaviales}, tier=0]
+                            ]
+                            [{Alismatales}, tier=0]
+                        ]
+                        [{Acorales}, tier=0]
+                    ]
+                    [, tier=17
+                        [{Ceratophyllales}, tier=0]
+                        [, label=Eudicoty, dot, tier=16
+                            [{Ranunculales}, tier=0]
+                            [, tier=15
+                                [{Proteales}, tier=0]
+                                [, tier=14
+                                    [{Trochodendrales}, tier=0]
+                                    [, tier=13
+                                        [{Buxales}, tier=0]
+                                        [, tier=12
+                                            [{Gunnerales}, tier=0]
+                                            [, tier=11
+                                                [, label=Superrosids, dot, tier=8
+                                                    [, label=Rosids, dot, tier=7
+                                                        [, tier=5
+                                                            [, tier=4
+                                                                [, tier=3
+                                                                    [{Fabales}, tier=0]
+                                                                    [, tier=2
+                                                                        [{Rosales}, tier=0]
+                                                                        [, tier=1
+                                                                            [{Fagales}, tier=0]
+                                                                            [{Cucurbitales}, tier=0]
+                                                                        ]
+                                                                    ]
+                                                                ]
+                                                                [, tier=2
+                                                                    [, tier=1
+                                                                        [{Oxalidales}, tier=0]
+                                                                        [{Malpighiales}, tier=0]
+                                                                    ]
+                                                                    [{Celastrales}, tier=0]
+                                                                ]
+                                                            ]
+                                                            [{Zygophyllales}, tier=0]
+                                                        ]
+                                                        [, tier=6
+                                                            [, tier=1
+                                                                [{Geraniales}, tier=0]
+                                                                [{Myrtales}, tier=0]
+                                                            ]
+                                                            [, tier=5
+                                                                [{Crossosomatales}, tier=0]
+                                                                [, tier=4
+                                                                    [{Picramniales}, tier=0]
+                                                                    [, tier=3
+                                                                        [, tier=2
+                                                                            [, tier=1
+                                                                                [{Malvales}, tier=0]
+                                                                                [{Brassicales}, tier=0]
+                                                                            ]
+                                                                            [{Huerteales}, tier=0]
+                                                                        ]
+                                                                        [{Sapindales}, tier=0]
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                        [{Vitales}, tier=0]
+                                                    ]
+                                                    [{Saxifragales}, tier=0]
+                                                ]
+                                                [{Dilleniales}, tier=0]
+                                                [, label=Superasterids, dot, tier=10
+                                                    [{Berberidopsidales}, tier=0]
+                                                    [, tier=9
+                                                        [{Santalales}, tier=0]
+                                                        [, tier=8
+                                                            [{Caryophyllales}, tier=0]
+                                                            [, label=Asterids, dot, tier=7
+                                                                [{Cornales}, tier=0]
+                                                                [, tier=6
+                                                                    [{Ericales}, tier=0]
+                                                                    [, tier=5
+                                                                        [{Aquifoliales}, tier=0]
+                                                                        [, tier=4
+                                                                            [{Asterales}, tier=0]
+                                                                            [{Escalloniales}, tier=0]
+                                                                            [, tier=3
+                                                                                [{Bruniales}, tier=0]
+                                                                                [, tier=2
+                                                                                    [{Apiales}, tier=0]
+                                                                                    [, tier=1
+                                                                                        [{Dipsacales}, tier=0]
+                                                                                        [{Paracryphiales}, tier=0]
+                                                                                    ]
+                                                                                ]
+                                                                            ]
+                                                                        ]
+                                                                    ]
+                                                                    [, tier=4
+                                                                        [, tier=3
+                                                                            [, tier=2
+                                                                                [, tier=1
+                                                                                    [{Solanales}, tier=0]
+                                                                                    [{Lamiales}, tier=0]
+                                                                                    [{Vahliales}, tier=0]
+                                                                                    [{Gentianales}, tier=0]
+                                                                                    [{Boraginales}, tier=0]
+                                                                                ]
+                                                                                [{Garryales}, tier=0]
+                                                                            ]
+                                                                            [{Metteniusales}, tier=0]
+                                                                        ]
+                                                                        [{Icacinales}, tier=0]
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
