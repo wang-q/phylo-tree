@@ -6,13 +6,12 @@
 - [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
 - [Starting from a newick tree](#starting-from-a-newick-tree)
 - [Create common tree from NCBI](#create-common-tree-from-ncbi)
+- [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
 - [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
 - [Dependences](#dependences)
 
 
 # A picture is worth a thousand words
-
-Two means more.
 
 ![template.png](example/template.png)
 
@@ -20,7 +19,7 @@ Two means more.
 
 # Tex/pdf files from manually created tikz/forest files
 
-[A forest file](forest/test.forest).
+[A forest file](forest/test.forest) looks like this:
 
 ```text
 [, label=Opisthokonta, dot
@@ -39,7 +38,7 @@ Two means more.
 ]
 ```
 
-The folllowing command will create `forest/test.trans.tex`.
+The following command will create `forest/test.trans.tex`.
 
 ```bash
 perl forest.pl forest/test.forest -t translation/translation.csv -a
@@ -117,6 +116,32 @@ cp tree/Oleaceae.forest forest/
 ```bash
 perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 ```
+
+# The APG IV system of flowering plant classification
+
+This is Fig. 1 of [the APG IV paper](http://dx.doi.org/10.1111%2Fboj.12385):
+
+![APG_IV_Fig_1](example/APG_IV_Fig_1.png)
+
+We recreated it by the following steps:
+
+1. create [this newick file](tree/APG_IV.newick) manually (indented by newick-tools)
+
+2. convert .newick to .forest
+
+    ```bash
+    perl tree.pl tree/APG_IV.newick && cp tree/APG_IV.forest forest/
+    ```
+
+3. create .pdf from .forest
+
+    ```bash
+    perl forest.pl forest/APG_IV.forest -p
+    ```
+
+And we got this:
+
+![APG_IV](forest/APG_IV.png)
 
 # Why not FigTree/Dendroscope/MEGA?
 
