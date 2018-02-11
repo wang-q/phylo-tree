@@ -13,9 +13,9 @@
 
 # A picture is worth a thousand words
 
-![template.png](example/template.png)
+![template.png](images/template.png)
 
-![template.trans.png](example/template.trans.png)
+![template.trans.png](images/template.trans.png)
 
 # Tex/pdf files from manually created tikz/forest files
 
@@ -46,7 +46,7 @@ perl forest.pl forest/test.forest -t translation/translation.csv -a
 
 Adding `-p` will also create `.pdf`.
 
-![test.trans.png](example/test.trans.png)
+![test.trans.png](images/test.trans.png)
 
 # Starting from a newick tree
 
@@ -79,7 +79,7 @@ perl tree.pl tree/hg38.7way.commonNames.nh -w -o stdout \
     | perl forest.pl stdin -r -p
 ```
 
-Or in one line, will create [`output.pdf`](example/output.pdf).
+Or in one line, will create [`output.pdf`](images/output.pdf).
 
 ```bash
 curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.scientificNames.nh \
@@ -121,7 +121,7 @@ perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 
 This is Fig. 1 of [the APG IV paper](http://dx.doi.org/10.1111%2Fboj.12385):
 
-![APG_IV_Fig_1](example/APG_IV_Fig_1.png)
+![APG_IV_Fig_1](images/APG_IV_Fig_1.png)
 
 We recreated it by the following steps:
 
@@ -149,7 +149,7 @@ For full controls on the tree, fonts, colors, line widths, annotations, etc.
 
 The figure below is a result file opened in Adobe Illustrator. Very clean vector graphics.
 
-![clean vector graphics](example/clean-vector-graphics.png)
+![clean vector graphics](images/clean-vector-graphics.png)
 
 # Dependences
 
