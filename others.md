@@ -9,6 +9,8 @@
 - [*Caenorhabditis*](#caenorhabditis)
 - [*Drosophila*](#drosophila)
 - [*Oryza*](#oryza)
+- [*Primates*](#primates)
+- [*Plasmodium*](#plasmodium)
 - [Tree of Life](#tree-of-life)
 
 
@@ -47,6 +49,12 @@ From [here](http://dev.biologists.org/content/138/3/387).
 ## *Oryza*
 
 ![Oryza](images/Oryza.png)
+
+## *Primates*
+
+From [here](https://doi.org/10.1016/j.tig.2005.06.012)
+
+![Primates](images/Primates.jpg)
 
 ## *Plasmodium*
 
