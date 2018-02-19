@@ -11,6 +11,7 @@
 - [*Oryza*](#oryza)
 - [*Primates*](#primates)
 - [*Plasmodium*](#plasmodium)
+- [Plants](#plants)
 - [Tree of Life](#tree-of-life)
 
 
@@ -61,6 +62,13 @@ From [here](https://doi.org/10.1016/j.tig.2005.06.012)
 ![Plasmodium](images/Plasmodium.png)
 
 ![Plasmodium2](images/Plasmodium2.png)
+
+## Plants
+
+From [here](http://nypg.bio.nyu.edu/bp/?q=node/6)
+
+![genusML](images/genusML.png)
+
 
 ## Tree of Life
 
