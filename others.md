@@ -48,6 +48,11 @@ From [here](http://dev.biologists.org/content/138/3/387).
 
 ![Oryza](images/Oryza.png)
 
+## *Plasmodium*
+
+![Plasmodium](images/Plasmodium.png)
+
+![Plasmodium2](images/Plasmodium2.png)
 
 ## Tree of Life
 
