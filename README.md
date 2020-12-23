@@ -167,6 +167,8 @@ bp_taxonomy2tree.pl -e \
 
 perl tree.pl tree/Algae.newick && cp tree/Algae.forest forest/
 
+# Edit forest/Algae.forest manually
+
 perl forest.pl forest/Algae.forest -p -t translation/translation.csv
 
 ```
