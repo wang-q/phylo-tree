@@ -1,0 +1,27 @@
+[
+    [, tier=4
+        [{Cyanobacteria}, tier=0]
+        [, label=Eukaryota, dot, tier=3
+            [, label=Euglenozoa, dot, tier=1
+                [{Euglenida}, tier=0, comment={2°}]
+                [{Kinetoplastea}, tier=0]
+            ]
+            [, label=Sar, dot, tier=2
+                [, label=Alveolata, dot, tier=1
+                    [{Dinophyceae}, tier=0, comment={2°}]
+                    [{Apicomplexa}, tier=0, comment={2°}]
+                    [{Ciliophora}, tier=0, comment={E}]
+                ]
+                [, label=Ochrophyta, dot, tier=1
+                    [{Chrysophyceae}, tier=0, comment={2°}]
+                    [{Bacillariophyta}, tier=0, comment={2°}]
+                    [{Phaeophyceae}, tier=0, comment={2°}]
+                ]
+            ]
+            [{Haptophyta}, tier=0, comment={2°}]
+            [{Cryptophyceae}, tier=0, comment={2° E}]
+            [{Rhodophyta}, tier=0, comment={1°}]
+            [{Chlorophyta}, tier=0, comment={1°}]
+        ]
+    ]
+]

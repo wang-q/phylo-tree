@@ -1,0 +1,25 @@
+(
+  Cyanobacteria,
+  (
+    (
+      Euglenida,
+      Kinetoplastea
+    )Euglenozoa,
+    (
+      (
+        Dinophyceae,
+        Apicomplexa,
+        Ciliophora
+      )Alveolata,
+      (
+        Chrysophyceae,
+        Bacillariophyta,
+        Phaeophyceae
+      )Ochrophyta
+    )Sar,
+    Haptophyta,
+    Cryptophyceae,
+    Rhodophyta,
+    Chlorophyta
+  )Eukaryota
+);

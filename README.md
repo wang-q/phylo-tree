@@ -2,22 +2,23 @@
 
 [TOC levels=1-3]: # " "
 - [Create phylogenetic trees by xelatex/tikz/forest.](#create-phylogenetic-trees-by-xelatextikzforest)
-- [A picture is worth a thousand words](#a-picture-is-worth-a-thousand-words)
-- [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
-- [Starting from a newick tree](#starting-from-a-newick-tree)
-- [Create common tree from NCBI](#create-common-tree-from-ncbi)
-- [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
-- [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
-- [Dependences](#dependences)
+    - [A picture is worth a thousand words](#a-picture-is-worth-a-thousand-words)
+    - [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
+    - [Starting from a newick tree](#starting-from-a-newick-tree)
+    - [Create common tree from NCBI](#create-common-tree-from-ncbi)
+    - [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
+    - [Algae](#algae)
+    - [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
+    - [Dependences](#dependences)
 
 
-# A picture is worth a thousand words
+## A picture is worth a thousand words
 
 ![template.png](images/template.png)
 
 ![template.trans.png](images/template.trans.png)
 
-# Tex/pdf files from manually created tikz/forest files
+## Tex/pdf files from manually created tikz/forest files
 
 [A forest file](forest/test.forest) looks like this:
 
@@ -48,7 +49,7 @@ Adding `-p` will also create `.pdf`.
 
 ![test.trans.png](images/test.trans.png)
 
-# Starting from a newick tree
+## Starting from a newick tree
 
 Get a newick file from UCSC
 
@@ -87,7 +88,7 @@ curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.sci
     | perl forest.pl stdin -r -p
 ```
 
-# Create common tree from NCBI
+## Create common tree from NCBI
 
 * On the homepage of [NCBI Taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy), click the link of
   [Common Tree](http://www.ncbi.nlm.nih.gov/Taxonomy/CommonTree/wwwcmt.cgi).
@@ -117,7 +118,7 @@ cp tree/Oleaceae.forest forest/
 perl forest.pl forest/Oleaceae.forest -t translation/translation.csv -a -p
 ```
 
-# The APG IV system of flowering plant classification
+## The APG IV system of flowering plant classification
 
 This is Fig. 1 of [the APG IV paper](http://dx.doi.org/10.1111%2Fboj.12385):
 
@@ -143,7 +144,34 @@ And we got this:
 
 ![APG_IV](forest/APG_IV.png)
 
-# Why not FigTree/Dendroscope/MEGA?
+## Algae
+
+```shell script
+bp_taxonomy2tree.pl -e \
+    -s "Cyanobacteria" \
+    -s "Euglenida" \
+    -s "Kinetoplastea" \
+    -s "Dinophyceae" \
+    -s "Apicomplexa" \
+    -s "Ciliophora" \
+    -s "Haptophyta" \
+    -s "Cryptophyceae" \
+    -s "Chrysophyceae" \
+    -s "Bacillariophyta" \
+    -s "Rhodophyta" \
+    -s "Chlorophyta" \
+    -s "Phaeophyceae" |
+    sed 's/cellular organisms//g' |
+    nw_indent - \
+    > tree/Algae.newick
+
+perl tree.pl tree/Algae.newick && cp tree/Algae.forest forest/
+
+perl forest.pl forest/Algae.forest -p -t translation/translation.csv
+
+```
+
+## Why not FigTree/Dendroscope/MEGA?
 
 For full controls on the tree, fonts, colors, line widths, annotations, etc.
 
@@ -151,7 +179,7 @@ The figure below is a result file opened in Adobe Illustrator. Very clean vector
 
 ![clean vector graphics](images/clean-vector-graphics.png)
 
-# Dependences
+## Dependences
 
 * LaTeX (I use MacTex 2015/2016/2017)
 * LaTeX utilities
