@@ -173,6 +173,19 @@ perl forest.pl forest/Algae.forest -p -t translation/translation.csv
 
 ```
 
+## Opisthokonta
+
+```shell script
+# Create Opisthokonta.newick manually
+
+perl tree.pl tree/Opisthokonta.newick && mv tree/Opisthokonta.forest forest/
+
+# Edit forest/Opisthokonta.forest manually
+
+perl forest.pl forest/Opisthokonta.forest -p -a -t translation/translation.csv
+
+```
+
 ## Why not FigTree/Dendroscope/MEGA?
 
 For full controls on the tree, fonts, colors, line widths, annotations, etc.

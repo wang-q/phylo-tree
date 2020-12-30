@@ -1,0 +1,18 @@
+[
+    [, label=Opisthokonta, dot, tier=4
+        [, label=Holomycota, dot, tier=1
+            [{Nucleariida}, tier=0]
+            [\color{red}{Fungi}, tier=0]
+        ]
+        [, label=Holozoa, dot, tier=3
+            [{Teretosporea}, tier=0]
+            [, label=Filozoa, dot, tier=2
+                [{Filasterea}, tier=0]
+                [, label=Choanozoa, dot, tier=1
+                    [{Choanoflagellata}, tier=0]
+                    [\color{red}{Metazoa}, tier=0]
+                ]
+            ]
+        ]
+    ]
+]
