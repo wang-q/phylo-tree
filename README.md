@@ -173,6 +173,51 @@ perl forest.pl forest/Algae.forest -p -t translation/translation.csv
 
 ```
 
+## Plants
+
+```shell script
+bp_taxonomy2tree.pl -e \
+    -s "Anthocerotophyta" \
+    -s "Bryophyta" \
+    -s "Marchantiophyta" \
+    \
+    -s "Tracheophyta" \
+    \
+    -s "Lycopodiopsida" \
+    -s "Euphyllophyta" \
+    -s "Polypodiopsida" \
+    \
+    -s "Acrogymnospermae" \
+    -s "Cycadopsida" \
+    -s "Ginkgoopsida" \
+    -s "Gnetopsida" \
+    -s "Pinopsida" \
+    \
+    -s "Spermatophyta" \
+    -s "Amborellales" \
+    -s "Nymphaeales" \
+    -s "Austrobaileyales" \
+    -s "Mesangiospermae" \
+    -s "magnoliids" \
+    -s "monocots" \
+    -s "eudicots" \
+    -s "asterids" \
+    -s "rosids" |
+    sed 's/cellular organisms//g' |
+    nw_indent - \
+    > tree/Plants.raw.newick
+
+# Edit tree/Plants.raw.newick manually
+cat tree/Plants.raw.newick |
+    nw_indent - \
+    > tree/Plants.newick
+
+perl tree.pl tree/Plants.newick && mv tree/Plants.forest forest/
+
+perl forest.pl forest/Plants.forest -p -t translation/translation.csv
+
+```
+
 ## Opisthokonta
 
 ```shell script
