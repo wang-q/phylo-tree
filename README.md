@@ -8,6 +8,8 @@
     - [Create common tree from NCBI](#create-common-tree-from-ncbi)
     - [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
     - [Algae](#algae)
+    - [Plants](#plants)
+    - [Opisthokonta](#opisthokonta)
     - [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
     - [Dependences](#dependences)
 
@@ -76,16 +78,16 @@ perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 With branch lengthes.
 
 ```bash
-perl tree.pl tree/hg38.7way.commonNames.nh -w -o stdout \
-    | perl forest.pl stdin -r -p
+perl tree.pl tree/hg38.7way.commonNames.nh -w -o stdout |
+    perl forest.pl stdin -r -p
 ```
 
 Or in one line, will create [`output.pdf`](images/output.pdf).
 
 ```bash
-curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.scientificNames.nh \
-    | perl tree.pl stdin -o stdout \
-    | perl forest.pl stdin -r -p
+curl http://hgdownload.cse.ucsc.edu/goldenpath/hg38/multiz100way/hg38.100way.scientificNames.nh |
+    perl tree.pl stdin -o stdout |
+    perl forest.pl stdin -r -p
 ```
 
 ## Create common tree from NCBI
