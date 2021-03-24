@@ -9,6 +9,7 @@ use YAML::Syck qw();
 
 use Path::Tiny qw();
 use Bio::Phylo::IO;
+use Bio::Phylo::Forest::Node;
 use List::Util;
 
 #----------------------------------------------------------#
@@ -69,7 +70,8 @@ $contents =~ s/_/-/g;
 #----------------------------------------------------------#
 
 #@type Bio::Phylo::Forest::Tree
-my $tree = Bio::Phylo::IO->parse( -string => $contents, -format => $format )->next;
+my $tree = Bio::Phylo::IO->parse( -string => $contents, -format => $format );
+$tree = $tree->next;
 
 my @tips      = @{ $tree->get_terminals() };
 my $max_depth = List::Util::max( map { depth_to_root($_) } @tips );
@@ -120,7 +122,7 @@ $tree->visit_breadth_first(
         #        };
 
         my ( $tier, $branch_length );
-        if ($wbl) {
+        if (defined $wbl) {
             $branch_length = calc_length( $node->get_branch_length, $max_path );
         }
         else {
@@ -167,7 +169,7 @@ $tree->visit_breadth_first(
 );
 $out_string .= "]\n";
 
-if ($wbl) {
+if (defined $wbl) {
     $out_string
         .= sprintf "\\draw[-, grey, line width=1pt]"
         . " (current bounding box.south) --++ (-10mm,0mm)"
@@ -189,11 +191,11 @@ sub depth_to_root {
     my $current = shift;    # just current node, not all terminals
 
     my @values;
-    if ($current) {
+    if (defined $current) {
         push @values, $node->calc_nodes_to_root;
     }
     else {
-        for my $tip ( @{ $node->get_terminals } ) {
+        for my Bio::Phylo::Forest::Node $tip ( @{ $node->get_terminals } ) {
             push @values, $tip->calc_nodes_to_root;
         }
     }
@@ -208,11 +210,11 @@ sub path_to_root {
     my $current = shift;    # just current node, not all terminals
 
     my @values;
-    if ($current) {
+    if (defined $current) {
         push @values, $node->calc_path_to_root;
     }
     else {
-        for my $tip ( @{ $node->get_terminals } ) {
+        for my Bio::Phylo::Forest::Node $tip ( @{ $node->get_terminals } ) {
             push @values, $tip->calc_path_to_root;
         }
     }

@@ -73,7 +73,7 @@ if ( defined $translation and Path::Tiny::path($translation)->is_file ) {
         next if $line =~ /^#/;
         my ( $from, $to ) = split /,/, $line;
         next unless defined $from and defined $to;
-        if ($append) {
+        if (defined $append) {
             $forest =~ s/\b$from\b/$from $to/gi;
         }
         else {
@@ -86,14 +86,14 @@ if ( defined $translation and Path::Tiny::path($translation)->is_file ) {
 
 $template =~ s/\%BEGIN.+\%END/$forest/s;
 
-if ($reverse) {
+if (defined $reverse) {
     $template =~ s/\s+^.*tree_direction.*$//m;
 }
 
 my $outfile = Path::Tiny::path( $outdir, $outbase . ".tex" )->stringify;
 Path::Tiny::path($outfile)->spew($template);
 
-if ($create_pdf) {
+if (defined $create_pdf) {
     chdir $outdir;
     system "latexmk -xelatex $outfile";
     system "latexmk -c $outfile";
