@@ -7,7 +7,7 @@ use Getopt::Long qw();
 use FindBin;
 use YAML::Syck qw();
 
-use Path::Tiny;
+use Path::Tiny qw();
 use Bio::Phylo::IO;
 use List::Util;
 
@@ -22,7 +22,9 @@ tree.pl - newick to tikz/forest
 =head1 SYNOPSIS
 
     perl tree.pl <infile> [options]
+
         <infile> is a (newick) tree file, stdin for STDIN.
+
       Options:
         --help      -?          brief help message
         --format    -f  STR     Bio::Phylo supported tree formats, default is [newick]
@@ -33,7 +35,7 @@ tree.pl - newick to tikz/forest
 =cut
 
 Getopt::Long::GetOptions(
-    'help|?' => sub { Getopt::Long::HelpMessage(0) },
+    'help|?'     => sub { Getopt::Long::HelpMessage(0) },
     'format|f=s' => \( my $format = "newick" ),
     'wbl|w'      => \( my $wbl ),
     'out|o=s'    => \( my $outfile ),
@@ -47,11 +49,11 @@ if ( !defined $ARGV[0] ) {
 elsif ( lc $ARGV[0] eq "stdin" ) {
     $contents = do { local $/; <STDIN> };
 }
-elsif ( !path( $ARGV[0] )->is_file ) {
+elsif ( !Path::Tiny::path( $ARGV[0] )->is_file ) {
     die "$ARGV[0] doesn't exist\n";
 }
 else {
-    $contents = path( $ARGV[0] )->slurp;
+    $contents = Path::Tiny::path( $ARGV[0] )->slurp;
 }
 
 if ( !defined $outfile ) {
@@ -177,7 +179,7 @@ if ( lc $outfile eq "stdout" ) {
     print $out_string;
 }
 else {
-    path($outfile)->spew($out_string);
+    Path::Tiny::path($outfile)->spew($out_string);
 }
 
 sub depth_to_root {

@@ -1,17 +1,18 @@
 # Create phylogenetic trees by xelatex/tikz/forest.
 
 [TOC levels=1-3]: # " "
+
 - [Create phylogenetic trees by xelatex/tikz/forest.](#create-phylogenetic-trees-by-xelatextikzforest)
-    - [A picture is worth a thousand words](#a-picture-is-worth-a-thousand-words)
-    - [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
-    - [Starting from a newick tree](#starting-from-a-newick-tree)
-    - [Create common tree from NCBI](#create-common-tree-from-ncbi)
-    - [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
-    - [Algae](#algae)
-    - [Plants](#plants)
-    - [Opisthokonta](#opisthokonta)
-    - [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
-    - [Dependences](#dependences)
+  - [A picture is worth a thousand words](#a-picture-is-worth-a-thousand-words)
+  - [Tex/pdf files from manually created tikz/forest files](#texpdf-files-from-manually-created-tikzforest-files)
+  - [Starting from a newick tree](#starting-from-a-newick-tree)
+  - [Create common tree from NCBI](#create-common-tree-from-ncbi)
+  - [The APG IV system of flowering plant classification](#the-apg-iv-system-of-flowering-plant-classification)
+  - [Algae](#algae)
+  - [Plants](#plants)
+  - [Opisthokonta](#opisthokonta)
+  - [Why not FigTree/Dendroscope/MEGA?](#why-not-figtreedendroscopemega)
+  - [Dependences](#dependences)
 
 
 ## A picture is worth a thousand words

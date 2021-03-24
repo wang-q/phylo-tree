@@ -4,18 +4,18 @@
             [, tier=3
                 [, tier=2
                     [, tier=1
-                        [Human]
-                        [Chimp]
+                        [{Human}, tier=0]
+                        [{Chimp}, tier=0]
                     ]
-                    [Rhesus]
+                    [{Rhesus}, tier=0]
                 ]
                 [, tier=1
-                    [Mouse]
-                    [Rat]
+                    [{Mouse}, tier=0]
+                    [{Rat}, tier=0]
                 ]
             ]
-            [Dog]
+            [{Dog}, tier=0]
         ]
-        [Opossum]
+        [{Opossum}, tier=0]
     ]
 ]

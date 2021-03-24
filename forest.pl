@@ -7,7 +7,7 @@ use Getopt::Long qw();
 use FindBin;
 use YAML::Syck qw();
 
-use Path::Tiny;
+use Path::Tiny qw();
 
 #----------------------------------------------------------#
 # GetOpt section
@@ -20,7 +20,9 @@ forest.pl - tikz/forest to tex
 =head1 SYNOPSIS
 
     perl forest.pl <infile> [options]
+
         <infile> is a forest file, stdin for STDIN.
+
       Options:
         --help          -?          brief help message
         --trans         -t  STR     translation file, csv
@@ -46,28 +48,27 @@ if ( defined $ARGV[0] ) {
     if ( lc $ARGV[0] eq "stdin" ) {
         $forest = do { local $/; <STDIN> };
     }
-    elsif ( path( $ARGV[0] )->is_file ) {
-        $forest  = path( $ARGV[0] )->slurp;
-        $outdir  = path( $ARGV[0] )->parent->absolute->stringify;
-        $outbase = path( $ARGV[0] )->basename( ".forest", ".tree" );
+    elsif ( Path::Tiny::path( $ARGV[0] )->is_file ) {
+        $forest  = Path::Tiny::path( $ARGV[0] )->slurp;
+        $outdir  = Path::Tiny::path( $ARGV[0] )->parent->absolute->stringify;
+        $outbase = Path::Tiny::path( $ARGV[0] )->basename( ".forest", ".tree" );
     }
 }
-
 
 #----------------------------------------------------------#
 # Run
 #----------------------------------------------------------#
 
-my $template = path( $FindBin::RealBin, "template.tex" )->slurp;
+my $template = Path::Tiny::path( $FindBin::RealBin, "template.tex" )->slurp;
 
 unless ( defined $forest and $forest =~ /\[/ ) {
     $template =~ /\%BEGIN(.+)\%END/s;
     $forest = $1;
 }
 
-if ( defined $translation and path($translation)->is_file ) {
+if ( defined $translation and Path::Tiny::path($translation)->is_file ) {
     $outbase .= ".trans";
-    my @lines = path($translation)->lines( { chomp => 1 } );
+    my @lines = Path::Tiny::path($translation)->lines( { chomp => 1 } );
     for my $line (@lines) {
         next if $line =~ /^#/;
         my ( $from, $to ) = split /,/, $line;
@@ -89,8 +90,8 @@ if ($reverse) {
     $template =~ s/\s+^.*tree_direction.*$//m;
 }
 
-my $outfile = path( $outdir, $outbase . ".tex" )->stringify;
-path($outfile)->spew($template);
+my $outfile = Path::Tiny::path( $outdir, $outbase . ".tex" )->stringify;
+Path::Tiny::path($outfile)->spew($template);
 
 if ($create_pdf) {
     chdir $outdir;
