@@ -76,7 +76,7 @@ Then create pdfs.
 perl forest.pl tree/hg38.7way.commonNames.forest -r -p
 ```
 
-With branch lengthes.
+With branch lengths.
 
 ```bash
 perl tree.pl tree/hg38.7way.commonNames.nh -w -o stdout |
